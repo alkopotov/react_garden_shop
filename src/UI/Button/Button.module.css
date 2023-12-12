@@ -1,0 +1,9 @@
+.btn_elem {
+  margin-top: 20px;
+  padding: 12px 56px;
+  border-radius: 5px;
+  cursor: pointer;
+  font-weight: 500;
+  font-size: 20px;
+  border: none;
+}

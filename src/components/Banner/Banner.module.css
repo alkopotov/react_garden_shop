@@ -1,0 +1,19 @@
+.banner {
+  width: 100%;
+  height: 600px;
+  padding: 80px 40px 0 40px;
+}
+
+.header_text {
+  font-size: 96px;
+  font-weight: 700;
+  line-height: 110%;
+  color: white;
+  padding-bottom: 40px;
+}
+
+@media (max-width: 900px) {
+  h1 {
+    font-size: 64px;
+  }
+}
