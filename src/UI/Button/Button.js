@@ -10,7 +10,7 @@ function Button({title, textColor, color, switchBackground, ...otherProps}) {
       className={`${style.btn_elem} ${switchBackground && style.switch_background}`}
       style={!switchBackground ? {color: textColor, backgroundColor: color} : {}}
       {...otherProps}
-      >
+    >
       {title}
     </button>
   )

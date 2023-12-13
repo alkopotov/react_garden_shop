@@ -24,8 +24,11 @@ function ProductItem({product}) {
       <div className={s.product_card_description}>
         <div className={s.product_card_title}>{product.title}</div>
         <div className={s.product_card_price_field}>
-          <p className={s.product_card_price_field_price}>${formatter.format(product.price)}</p>
-          {product.discont_price !== null && <p className={s.product_card_price_field_discount_price}>${formatter.format(product.discont_price)}</p>}
+
+          <p className={s.product_card_price_field_price}>${product.discont_price ? formatter.format(product.discont_price) : formatter.format(product.price)}</p>
+
+          {product.discont_price !== null && <p className={s.product_card_price_field_initial_price}>${formatter.format(product.price)}</p>}  
+        
         </div>
       </div>
     </div>
