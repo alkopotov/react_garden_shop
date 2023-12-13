@@ -1,6 +1,6 @@
 import s from './Footer.module.css'
-import { ReactComponent as Inst } from './images/ic-instagram.svg'
-import { ReactComponent as Whats } from './images/ic-whatsapp.svg'
+import { ReactComponent as Telegram } from './images/ic-tg.svg'
+import { ReactComponent as Vk } from './images/ic-vk.svg'
 
 function Footer() {
   return(
@@ -14,8 +14,9 @@ function Footer() {
         <div className={s.contact_item}>
           <p>Socials</p>
           <div className={s.smm_icons}>
-            <Inst/>
-            <Whats/>
+            <a href='https://telegram.org/' target='_blank'><Telegram/></a>
+            <a href='https://vk.com/' target='_blank'><Vk/></a>
+            
           </div>
         </div>
         <div className={s.contact_item}>

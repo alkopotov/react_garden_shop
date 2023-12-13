@@ -1,14 +1,14 @@
 import style from './Button.module.css'
 
-function Button({title, textColor, color, ...otherProps}) {
+function Button({title, textColor, color, switchBackground, ...otherProps}) {
 
   title = title || 'Добавить'
   textColor = textColor || 'white';
   color = color || '#339933';
   return (
     <button 
-      className={style.btn_elem}
-      style={{color: textColor, backgroundColor: color}}
+      className={`${style.btn_elem} ${switchBackground && style.switch_background}`}
+      style={!switchBackground ? {color: textColor, backgroundColor: color} : {}}
       {...otherProps}
       >
       {title}

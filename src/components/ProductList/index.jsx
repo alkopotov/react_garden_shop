@@ -7,7 +7,7 @@ import { Link } from 'react-router-dom'
 const ProductList = forwardRef((props, ref) => {
   const {withNav} = props
   const products = useSelector(store => store.productList)
-  const dispatch = useDispatch()
+  // const dispatch = useDispatch()
 
   return (
     <div className={s.wrapper}>
