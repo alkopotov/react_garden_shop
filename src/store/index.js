@@ -3,11 +3,13 @@ import {thunk} from 'redux-thunk'
 import { productListReducer } from './productListReducer'
 import { categoryListReducer } from './categoryReducer'
 import { productReducer } from './productReducer'
+import { cartProductIdsReducer } from './cartProductIdsReducer'
 
 const rootReducer = combineReducers({
   productList: productListReducer,
   categoryList: categoryListReducer,
-  product: productReducer
+  product: productReducer,
+  cartProductIds: cartProductIdsReducer
 })
 
 

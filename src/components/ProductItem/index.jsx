@@ -3,11 +3,20 @@ import { formatter } from "../.."
 import { BASE_URL } from "../../asyncActions/backendconfig"
 import s from './ProductItem.module.css'  
 import PopUpButton from "../PopUpButton"
-import { useState } from "react"
+import { useEffect, useState } from "react"
+import { useDispatch, useSelector } from "react-redux"
+import { getIdsInCartAction } from "../../store/cartProductIdsReducer"
 
 function ProductItem({product}) {
 
   const [active, setActive] = useState(false)
+
+  const cartProducts = useSelector(store => store.cartProductIds)
+  const dispatch = useDispatch()
+
+  useEffect(()=> {
+    dispatch(getIdsInCartAction())
+  }, [])
 
   return(
     <Link to={'/products/' + product.id}>
@@ -18,8 +27,7 @@ function ProductItem({product}) {
     >
       <div style={{backgroundImage: `url(${BASE_URL + product.image})`}} className={s.product_card_image}>
         {product.discont_price !== null && <div className={s.discount_tag}>{Math.round((1 - product.discont_price / product.price) * 100)}%</div>}
-        <PopUpButton active={active} id={product.id}/>
-
+        {!cartProducts.includes(`${product.id}`) && <PopUpButton active={active} id={product.id}/>}
       </div>
       <div className={s.product_card_description}>
         <div className={s.product_card_title}>{product.title}</div>

@@ -1,7 +1,10 @@
+import { useDispatch } from 'react-redux'
 import Button from '../../UI/Button/Button'
 import s from './PopUpButton.module.css'
+import { addProductToCartAction } from '../../store/cartProductIdsReducer'
 
 function PopUpButton({id, active}) {
+  const dispatch = useDispatch()
   return (
     <div className={`${s.popup_wrapper} ${active && s.active}`}>
       <Button 
@@ -9,7 +12,7 @@ function PopUpButton({id, active}) {
         onClick={(e)=> {
         e.stopPropagation()
         e.preventDefault()
-        console.log(id);
+        dispatch(addProductToCartAction({id, count: 1}))
         }}
         switchBackground={true}
       />
