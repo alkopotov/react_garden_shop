@@ -1,38 +1,30 @@
 .wrapper {
   width: 100%;
+  max-width: 1360px;
   margin: auto;
-  margin-top: 80px;
-  padding: 0 40px;
-}
-
-.product_cards_list {
-  width: 100%;
-  display: grid;
-  grid-template-columns: repeat(4, 1fr);
-  gap: 32px;
 }
 .header {
   display: flex;
   align-items: center;
   margin-bottom: 40px;
+  margin-top: 40px;
 }
 
 .header_text {
   font-size: 64px;
   font-weight: 700;
-  padding: 0 40px 0 0;
   vertical-align: middle;
+  white-space: nowrap;
 }
 
 .header_navigation {
   display: flex;
   justify-content: flex-end;
-  align-items: flex-end;
-  width: 100%;
+  width: calc(100% - 300px);
   align-items: center;
 }
 .decoration_line {
-  width: calc(100% - 150px);
+  width: calc(100% - 300px);
   border-bottom: 1px solid #DDD;
 }
 .navigation_button {

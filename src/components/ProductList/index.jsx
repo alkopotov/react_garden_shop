@@ -12,7 +12,9 @@ const ProductList = forwardRef((props, ref) => {
   return (
     <div className={s.wrapper}>
       <div className={s.header}>
-        <h2 ref={ref} className={s.header_text}>{products.title}</h2>
+        {products.title === 'Sale' ? 
+          <h2 ref={ref} className={s.header_text}>{products.title}</h2> :
+          <h1 ref={ref} className={s.header_text}>{products.title}</h1>}
         {(withNav) ? 
           <div className={s.header_navigation}>
             <div className={s.decoration_line}></div>

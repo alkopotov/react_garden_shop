@@ -8,6 +8,7 @@ function ProductsSalesPage() {
 
   useEffect(()=> {
     dispatch(fetchAllProductsOnSale())
+    document.body.scrollIntoView()
   })
 
   return (

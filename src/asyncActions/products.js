@@ -1,3 +1,4 @@
+import { getCartProductsAction } from "../store/cartReducer";
 import { getAllProductsAction, getAllProductsOnSaleAction, getProductsByCategoryAction, getTopProductsOnSaleAction } from "../store/productListReducer";
 import { BASE_URL } from "./backendconfig";
 
@@ -31,5 +32,13 @@ export function fetchTopProductsOnSale() {
     fetch(BASE_URL + '/products/all')
       .then(res => res.json())
         .then(data => dispatch(getTopProductsOnSaleAction(data.filter(elem => elem.discont_price))))
+  }
+}
+
+export function fetchCartProducts() {
+  return function(dispatch) {
+    fetch(BASE_URL + '/products/all')
+      .then(res => res.json())
+        .then(data => dispatch(getCartProductsAction(data)))
   }
 }
