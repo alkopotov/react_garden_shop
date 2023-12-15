@@ -5,6 +5,8 @@ import DiscountForm from "../../components/DiscountForm"
 import ProductList from "../../components/ProductList"
 import { useDispatch } from "react-redux"
 import { fetchTopProductsOnSale } from "../../asyncActions/products"
+import s from './HomePage.module.css'
+
 
 
 function HomePage() {
@@ -19,8 +21,8 @@ function HomePage() {
     document.body.scrollIntoView()
   }) 
   return (
-    <main>
-      <Banner autoScroll={autoScroll}/>
+    <main className={s.wrapper}>
+      <Banner autoScroll={autoScroll} />
       <CategoryList itemNumber={4} withNav={true} type='categories_list_main'/>
       <DiscountForm/>
       <ProductList ref={saleRef} withNav={true}/>

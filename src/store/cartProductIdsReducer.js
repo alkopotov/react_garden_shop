@@ -6,7 +6,8 @@ const GET_IDS_IN_CART = 'GET_IDS_IN_CART'
 export const cartProductIdsReducer = (state = defaultState, action) => {
   switch(action.type) {
     case ADD_PRODUCT_TO_CART:
-      localStorage.setItem(action.payload.id, action.payload.count)
+      let currentCount = +localStorage.getItem(action.payload.id) || 0 
+      localStorage.setItem(action.payload.id, currentCount + action.payload.count)
       return Object.keys(localStorage)
     case GET_IDS_IN_CART:
       return Object.keys(localStorage)
