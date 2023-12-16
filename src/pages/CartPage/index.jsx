@@ -42,7 +42,14 @@ function CartPage() {
           <div className={s.cart_list}>
             {cartProducts.map(elem => <CartItem key={elem.id} product={elem}/>)}
           </div>
-          <OrderForm orderItems={3} orderSum={541}/>
+          <OrderForm 
+            orderItems={cartProducts.length}
+            orderSum={
+              cartProducts.reduce((sum, product) => {
+                return sum + product.count * (product.discont_price ? product.discont_price : product.price)
+              }, 0)
+            }
+          />
         </div>
       }
     </main>
