@@ -3,6 +3,9 @@ import s from './CartPage.module.css'
 import { useDispatch, useSelector } from 'react-redux'
 import { useEffect } from 'react'
 import { fetchCartProducts } from '../../asyncActions/products'
+import Button from '../../UI/Button/Button'
+import CartItem from '../../components/CartItem'
+import OrderForm from '../../components/OrderForm'
 function CartPage() {
 
   const cartProducts = useSelector(store => store.cart)
@@ -26,6 +29,22 @@ function CartPage() {
             </Link>
         </div>
       </div>
+      {cartProducts.length === 0 && 
+      <div className={s.empty_cart}>
+        <p className={s.message_text}>Looks like you have no items in your basket currently.</p>
+        <Link to={'/categories'}>
+          <Button title='Continue Shopping'/>
+        </Link>
+      </div>}
+
+      {cartProducts.length > 0 &&
+        <div className={s.cart_information}>
+          <div className={s.cart_list}>
+            {cartProducts.map(elem => <CartItem key={elem.id} product={elem}/>)}
+          </div>
+          <OrderForm orderItems={3} orderSum={541}/>
+        </div>
+      }
     </main>
   )
 }
