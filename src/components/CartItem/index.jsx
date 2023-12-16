@@ -4,9 +4,15 @@ import { ReactComponent as Plus } from './images/plus.svg'
 import { ReactComponent as Minus } from './images/minus.svg'
 import { ReactComponent as Close } from './images/close.svg'
 import { formatter } from '../..'
+import { useDispatch } from 'react-redux'
+import { decrCartProductCounterAction, incrCartProductCounterAction, removeCartItemAction } from '../../store/cartReducer'
+import { addProductToCartAction, delProductInCartAction } from '../../store/cartProductIdsReducer'
 
 
 function CartItem({product}) {
+
+  const dispatch = useDispatch()
+
 
   return (
     <div className={s.wrapper}>
@@ -19,9 +25,25 @@ function CartItem({product}) {
 
         <div className={s.price_counter_area}>
           <div className={s.counter}>
-            <div className={s.less_button} onClick={() => {}}><Minus/></div>
+            <div
+              className={s.less_button}
+              onClick={() => {
+                dispatch(decrCartProductCounterAction(product.id))
+                dispatch(addProductToCartAction({id: product.id, count: -1}))
+              }}
+            >
+              <Minus/>
+            </div>
             <div className={s.counter_value}>{product.count}</div>
-            <div className={s.more_button} onClick={()=> {}}><Plus/></div>
+            <div 
+              className={s.more_button} 
+              onClick={()=> {
+                dispatch(incrCartProductCounterAction(product.id))
+                dispatch(addProductToCartAction({id: product.id, count: 1}))
+              }}
+            >
+              <Plus/>
+            </div>
           </div>
 
           <div className={s.product_price_info}>
@@ -34,7 +56,13 @@ function CartItem({product}) {
           </div>
         </div>
       </div>
-      <Close className={s.close_button}/>
+      <Close 
+        className={s.close_button}
+        onClick={() => {
+          dispatch(delProductInCartAction(product.id))
+          dispatch(removeCartItemAction(product.id))
+        }}
+      />
     </div>
   )
 }

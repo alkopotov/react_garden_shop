@@ -1,11 +1,10 @@
 import {ReactComponent as CartLogo} from './images/cart.svg'
 import s from './CartIcon.module.css'
-import { useDispatch, useSelector } from 'react-redux'
+import { useSelector } from 'react-redux'
 
 function CartIcon() {
 
   const cartProducts = useSelector(store => store.cartProductIds)
-  const dispatch = useDispatch()
 
   return (
     <div className={s.cart_logo}>
