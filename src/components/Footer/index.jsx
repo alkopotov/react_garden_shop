@@ -14,8 +14,8 @@ function Footer() {
         <div className={s.contact_item}>
           <p>Socials</p>
           <div className={s.smm_icons}>
-            <a href='https://telegram.org/' target='_blank'><Telegram/></a>
-            <a href='https://vk.com/' target='_blank'><Vk/></a>
+            <a href='https://t.me/ithubnews' target='_blank'><Telegram/></a>
+            <a href='https://vk.com/ithubcollege' target='_blank'><Vk/></a>
             
           </div>
         </div>

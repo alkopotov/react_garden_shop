@@ -1,6 +1,9 @@
+import { useDispatch } from 'react-redux'
+import Modal from '../Modal'
 import s from './DiscountForm.module.css'
 import formPict from './images/discount_form.png'
 import { useForm } from 'react-hook-form'
+import { displayDiscountModalAction } from '../../store/modalReducer'
 
 function DiscountForm() {
 
@@ -32,14 +35,17 @@ function DiscountForm() {
     }
   })
 
+  const dispatch = useDispatch()
+
   const onSubmit = (data) => {
-    console.log(data);
+    dispatch(displayDiscountModalAction())
     reset()
   }
   return(
     <div className={s.wrapper}>
       <div className={s.discount_form_banner}>
         <h2 className={s.header_text}>5% off on the first order</h2>
+        <Modal/>
         <div className={s.form_wrapper}>
           <img src={formPict}/>
           <form className={s.discount_form} onSubmit={handleSubmit(onSubmit)}>
@@ -47,7 +53,6 @@ function DiscountForm() {
             <input className={s.input_field} {...inputPhone} placeholder={errors.phone?.message || 'Phone Number'}/>
             <input className={s.input_field} {...inputEmail} placeholder={errors.email?.message || 'Email'}/>
             <input type='submit' value={'Get a discount'} className={s.submit_button}></input>
-
           </form>
         </div>
       </div>

@@ -14,7 +14,7 @@ export function fetchProductsByCategory(id) {
   return function(dispatch) {
     fetch(BASE_URL + '/categories/' + id)
       .then(res => res.json())
-        .then(data => {console.log(data); dispatch(getProductsByCategoryAction(data))})
+        .then(data => dispatch(getProductsByCategoryAction(data)))
           .catch(err => dispatch(getProductsByCategoryAction({category: '', data: []})))
   }
 }

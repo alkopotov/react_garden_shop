@@ -5,6 +5,7 @@ const GET_CART_PRODUCTS = 'GET_CART_PRODUCTS'
 const INCR_CART_PRODUCT_COUNTER = 'INCR_CART_PRODUCT_COUNTER'
 const DECR_CART_PRODUCT_COUNTER = 'DECR_CART_PRODUCT_COUNTER'
 const REMOVE_CART_ITEM = 'REMOVE_CART_ITEM'
+const CLEAR_CART = 'CLEAR_CART'
 
 export const cartReducer = (state = defaultState, action) => {
   switch(action.type) {
@@ -35,6 +36,8 @@ export const cartReducer = (state = defaultState, action) => {
       }
     case REMOVE_CART_ITEM:
       return state.filter(elem => elem.id !== action.payload)
+    case CLEAR_CART:
+      return []
     default:
       return state
   }
@@ -44,3 +47,4 @@ export const getCartProductsAction = (payload) => ({type: GET_CART_PRODUCTS, pay
 export const incrCartProductCounterAction = (payload) => ({type: INCR_CART_PRODUCT_COUNTER, payload})
 export const decrCartProductCounterAction = (payload) => ({type: DECR_CART_PRODUCT_COUNTER, payload})
 export const removeCartItemAction = (payload) => ({type: REMOVE_CART_ITEM, payload})
+export const clearCartAction = () => ({type: CLEAR_CART})

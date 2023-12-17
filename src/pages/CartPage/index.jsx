@@ -6,6 +6,7 @@ import { fetchCartProducts } from '../../asyncActions/products'
 import Button from '../../UI/Button/Button'
 import CartItem from '../../components/CartItem'
 import OrderForm from '../../components/OrderForm'
+import Modal from '../../components/Modal'
 function CartPage() {
 
   const cartProducts = useSelector(store => store.cart)
@@ -17,9 +18,10 @@ function CartPage() {
    dispatch(fetchCartProducts()) 
   },[cartProductsIds])
 
-  console.log(cartProducts)
+
   return (
     <main className={s.wrapper}>
+      <Modal/>
       <div className={s.header}>
         <h1 className={s.header_text}>Shopping Cart</h1>
         <div className={s.header_navigation}>

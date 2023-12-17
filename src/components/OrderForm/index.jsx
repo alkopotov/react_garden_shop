@@ -1,6 +1,10 @@
+import { useDispatch } from 'react-redux'
 import { formatter } from '../..'
 import s from './OrderForm.module.css'
 import { useForm } from 'react-hook-form'
+import { displayOrderModalAction } from '../../store/modalReducer'
+import { clearCartAction } from '../../store/cartReducer'
+import { clearStoredProductsAction } from '../../store/cartProductIdsReducer'
 
 function OrderForm({orderItems, orderSum}) {
 
@@ -31,9 +35,12 @@ function OrderForm({orderItems, orderSum}) {
       message: 'Please enter valid email'
     }
   })
+  const dispatch = useDispatch()
 
   const onSubmit = (data) => {
-    console.log(data);
+    dispatch(displayOrderModalAction());
+    dispatch(clearCartAction())
+    dispatch(clearStoredProductsAction())
     reset()
   }
   return(
@@ -41,14 +48,13 @@ function OrderForm({orderItems, orderSum}) {
       <div className={s.order_details}>
         <h2 className={s.form_title}>Order details</h2>
         <div className={s.order_finance_details}>
-          <p className={s.items_number}>{orderItems} items</p>
+          <p className={s.items_number}>{orderItems} {orderItems === 1 ? 'item':'items'}</p>
           <div className={s.order_sum_field}>
             <p className={s.order_sum_title}>Total</p>
             <p className={s.order_sum_value}>${formatter.format(orderSum)}</p>
           </div>
         </div>
       </div>
-
       <div className={s.form_wrapper}>
           <form className={s.discount_form} onSubmit={handleSubmit(onSubmit)}>
             <input className={s.input_field} {...inputName} placeholder={errors.name?.message || 'Name'}/>
