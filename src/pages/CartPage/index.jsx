@@ -7,6 +7,7 @@ import Button from '../../UI/Button/Button'
 import CartItem from '../../components/CartItem'
 import OrderForm from '../../components/OrderForm'
 import Modal from '../../components/Modal'
+
 function CartPage() {
 
   const cartProducts = useSelector(store => store.cart)

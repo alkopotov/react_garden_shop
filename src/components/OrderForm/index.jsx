@@ -1,10 +1,11 @@
-import { useDispatch } from 'react-redux'
+import { useDispatch, useSelector } from 'react-redux'
 import { formatter } from '../..'
 import s from './OrderForm.module.css'
 import { useForm } from 'react-hook-form'
-import { displayOrderModalAction } from '../../store/modalReducer'
+import { dislpayErrorModalAction, displayOrderModalAction } from '../../store/modalReducer'
 import { clearCartAction } from '../../store/cartReducer'
 import { clearStoredProductsAction } from '../../store/cartProductIdsReducer'
+import { BASE_URL } from '../../asyncActions/backendconfig'
 
 function OrderForm({orderItems, orderSum}) {
 
@@ -36,13 +37,28 @@ function OrderForm({orderItems, orderSum}) {
     }
   })
   const dispatch = useDispatch()
+  const orderProducts = useSelector(store => store.cart)
 
   const onSubmit = (data) => {
-    dispatch(displayOrderModalAction());
-    dispatch(clearCartAction())
-    dispatch(clearStoredProductsAction())
-    reset()
+
+    let orderData = {user: {data}, order: orderProducts}
+    fetch(BASE_URL+ '/order/send', {
+      method: 'POST',
+      headers: {
+        'Content-Type' : 'application/json; charset=UTF-8',
+      },
+      body: JSON.stringify(orderData)
+    })
+      .then(res => res.json())
+        .then(data => {
+          dispatch(displayOrderModalAction());
+          dispatch(clearCartAction())
+          dispatch(clearStoredProductsAction())
+          reset()
+        })
+          .catch(err => dispatch(dislpayErrorModalAction()))  
   }
+
   return(
     <div className={s.wrapper}>
       <div className={s.order_details}>

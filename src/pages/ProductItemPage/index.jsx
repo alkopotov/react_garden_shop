@@ -1,6 +1,6 @@
 import { useEffect } from "react"
 import { useDispatch, useSelector } from "react-redux"
-import { useParams } from "react-router-dom"
+import { useNavigate, useParams } from "react-router-dom"
 import { fetchProductByID } from "../../asyncActions/product"
 import s from './ProductItemPage.module.css'
 import { BASE_URL } from "../../asyncActions/backendconfig"
@@ -16,6 +16,7 @@ function ProductItemPage() {
   const product = useSelector(store => store.product)
   const dispatch = useDispatch()
   const count = useSelector(store => store.counter)
+  const navigate = useNavigate()
 
   useEffect(()=> {
     dispatch(fetchProductByID(id))
@@ -26,6 +27,7 @@ function ProductItemPage() {
   return(
 
     <main className={s.wrapper}>
+      {!product.title && navigate('/nofound')}
       <div className={s.image_container} style={{backgroundImage: `url(${BASE_URL + product.image})`}}></div>
   
       <div className={s.product_info}>

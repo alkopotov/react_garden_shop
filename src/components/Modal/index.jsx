@@ -12,16 +12,15 @@ function Modal() {
     'error' : [`Sorry, but we're unable to proceed your request at the moment, please try again later.`],
     'off' : []
   }  
-  const current = 'discount'
+
   const modalMode = useSelector(store => store.modal)
   const dispatch = useDispatch()
-  console.log(modalMode);
 
-  console.log(modalContent[current])
+  
   return(
     <div className={`${s.wrapper} ${modalMode !== 'off' ? s.active : ''}`}>
       <div className={`${s.modal_content} ${modalMode !== 'off' ? s.active : ''}`}>
-        {current === 'error' ? <h2> Oops...</h2> : <h2>Congratulations!</h2> }
+        {modalMode === 'error' ? <h2> Oops...</h2> : <h2>Congratulations!</h2> }
         {modalContent[modalMode].map(elem => 
          <p key={Date.now()}>{elem}</p>)}
         <Close className={s.close_button} onClick={()=> dispatch(hideModalAction())}/>

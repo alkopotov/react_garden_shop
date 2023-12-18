@@ -17,6 +17,7 @@
 .header_text {
   text-align: center;
   color: white;
+  padding-bottom: 24px;
 }
 .form_wrapper {
   display: grid;

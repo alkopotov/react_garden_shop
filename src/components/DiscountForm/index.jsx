@@ -3,7 +3,9 @@ import Modal from '../Modal'
 import s from './DiscountForm.module.css'
 import formPict from './images/discount_form.png'
 import { useForm } from 'react-hook-form'
-import { displayDiscountModalAction } from '../../store/modalReducer'
+import { BASE_URL } from '../../asyncActions/backendconfig'
+import { dislpayErrorModalAction, displayDiscountModalAction } from '../../store/modalReducer'
+
 
 function DiscountForm() {
 
@@ -38,16 +40,29 @@ function DiscountForm() {
   const dispatch = useDispatch()
 
   const onSubmit = (data) => {
-    dispatch(displayDiscountModalAction())
-    reset()
+    
+    fetch(BASE_URL + '/sale/send', {
+      method: 'POST',
+      headers: {
+        'Content-Type' : 'application/json; charset=UTF-8',
+      },
+      body: JSON.stringify(data)
+    })
+      .then(res => res.json())
+        .then(data => {
+          dispatch(displayDiscountModalAction());
+          reset()
+        })
+          .catch(err => dispatch(dislpayErrorModalAction()))
   }
+
   return(
     <div className={s.wrapper}>
       <div className={s.discount_form_banner}>
         <h2 className={s.header_text}>5% off on the first order</h2>
         <Modal/>
         <div className={s.form_wrapper}>
-          <img src={formPict}/>
+          <img src={formPict} alt={'Hands with garden tools'}/>
           <form className={s.discount_form} onSubmit={handleSubmit(onSubmit)}>
             <input className={s.input_field} {...inputName} placeholder={errors.name?.message || 'Name'}/>
             <input className={s.input_field} {...inputPhone} placeholder={errors.phone?.message || 'Phone Number'}/>

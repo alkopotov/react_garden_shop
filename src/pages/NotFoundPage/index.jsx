@@ -18,7 +18,7 @@ function NotFoundPage() {
       <p>We’re sorry, the page you requested could not be found. Please go back to the homepage.</p>
       
       </div>
-      <Link to={'/'}>
+      <Link to={'/'} className={s.button}>
         <Button title={'Go Home'}/>
       </Link>
     </main>
