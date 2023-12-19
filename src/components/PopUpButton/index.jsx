@@ -10,7 +10,6 @@ function PopUpButton({id, active}) {
       <Button 
         title={'Add to cart'}
         onClick={(e)=> {
-        e.stopPropagation()
         e.preventDefault()
         dispatch(addProductToCartAction({id, count: 1}))
         }}

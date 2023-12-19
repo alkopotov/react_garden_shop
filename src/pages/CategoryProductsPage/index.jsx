@@ -3,6 +3,7 @@ import { fetchProductsByCategory } from "../../asyncActions/products";
 import { useDispatch, useSelector } from "react-redux";
 import { useEffect } from "react";
 import ProductList from "../../components/ProductList";
+import Filter from "../../components/Filter";
 
 function CategoryProductsPage() {
 

@@ -27,7 +27,8 @@ function ProductItem({product}) {
     >
       <div style={{backgroundImage: `url(${BASE_URL + product.image})`}} className={s.product_card_image}>
         {product.discont_price !== null && <div className={s.discount_tag}>{Math.round((1 - product.discont_price / product.price) * 100)}%</div>}
-        {!cartProducts.includes(`${product.id}`) && <PopUpButton active={active} id={product.id}/>}
+        {/* {!cartProducts.includes(`${product.id}`) && <PopUpButton active={active} id={product.id}/>} */}
+        <PopUpButton active={active} id={product.id}/>
       </div>
       <div className={s.product_card_description}>
         <div className={s.product_card_title}>{product.title}</div>

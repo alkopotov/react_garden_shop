@@ -3,11 +3,11 @@ import s from './ProductList.module.css'
 import { useDispatch, useSelector } from 'react-redux'
 import ProductItem from '../ProductItem'
 import { Link } from 'react-router-dom'
+import Filter from '../Filter'
 
 const ProductList = forwardRef((props, ref) => {
   const {withNav} = props
   const products = useSelector(store => store.productList)
-  // const dispatch = useDispatch()
 
   return (
     <div className={s.wrapper}>
@@ -24,9 +24,10 @@ const ProductList = forwardRef((props, ref) => {
           </div>
         : ''}
       </div>
-
+      {products.title !== 'Sale' && <Filter withCheckbox={products.title !== 'Discounted items'}/>}
+      
       <div className={s.product_cards_list}>
-      {products.data?.map(elem => 
+      {products.data?.filter(elem => elem.displayed).map(elem => 
         <ProductItem key={elem.id} product={elem}/>)}
       </div>
     </div>
