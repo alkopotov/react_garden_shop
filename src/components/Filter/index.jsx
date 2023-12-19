@@ -1,6 +1,7 @@
 import { useDispatch } from "react-redux"
 import s from './Filter.module.css'
 import { useRef } from "react"
+import { applyProductsFilterAction } from "../../store/productListReducer"
 
 
 
@@ -12,9 +13,10 @@ function Filter({withCheckbox}) {
   function filterHandler(e) {
     let filterData = new FormData(formRef.current);
     let data = Object.fromEntries(filterData);
-    data.discount_only = data.discount_only ? true : false
-    data.min = isNaN(data.min) ? 0 : +data.min
-    console.log(data);
+    data.discount_only = data.discount_only ? true : false;
+    data.min = isNaN(data.min) ? 0 : +data.min;
+    data.max = (!data.max || isNaN(data.max) || +data.max < +data.min) ? Infinity : +data.max;
+    dispatch(applyProductsFilterAction(data));
 
   }
 
@@ -30,8 +32,9 @@ function Filter({withCheckbox}) {
       </label>}
         
       <label> Sorted by
-        <select name='filter' className={s.select_filter}>
+        <select name='sort_type' className={s.select_filter}>
           <option value='default'>default</option>
+          <option value='update_date'>newest</option>
           <option value='name_asc'>name: a-z</option>
           <option value='name_desc'>name: z-a</option>
           <option value='price_asc'>price: high-low</option>
