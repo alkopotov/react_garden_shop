@@ -4,14 +4,14 @@ import { BASE_URL } from "../../asyncActions/backendconfig"
 import s from './ProductItem.module.css'  
 import PopUpButton from "../PopUpButton"
 import { useEffect, useState } from "react"
-import { useDispatch, useSelector } from "react-redux"
+import { useDispatch } from "react-redux"
 import { getIdsInCartAction } from "../../store/cartProductIdsReducer"
 
 function ProductItem({product}) {
 
   const [active, setActive] = useState(false)
 
-  const cartProducts = useSelector(store => store.cartProductIds)
+  // const cartProducts = useSelector(store => store.cartProductIds)
   const dispatch = useDispatch()
 
   useEffect(()=> {
