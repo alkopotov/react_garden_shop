@@ -35,9 +35,11 @@ export const productListReducer = (state = defaultState, action) => {
 
     case APPLY_PRODUCTS_FILTER:
       let updatedProducts = state.data.map(elem => {
-        let currentPrice = elem.discont_price || elem.price
+
+        let currentPrice = elem.discont_price || elem.price;
         elem.displayed = (!action.payload.discount_only || elem.discont_price) && (currentPrice >= action.payload.min && currentPrice <= action.payload.max)
         return elem;
+
       })
       switch(action.payload.sort_type) {
 
