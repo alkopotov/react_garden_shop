@@ -44,3 +44,37 @@
   border: 1px solid #DDD;
   border-radius: 6px;
 }
+
+@media (max-width: 1360px) {
+  .product_cards_list {
+    gap: 24px
+  }
+}
+
+@media (max-width: 1200px) {
+  .wrapper {
+    padding: 0 20px;
+  }
+}
+
+@media (max-width: 860px) {
+  .product_cards_list {
+    grid-template-columns: repeat(2, 1fr);
+  }
+}
+
+@media (max-width: 450px) {
+  .header_text {
+    font-size: 24px;
+  }
+  .product_cards_list {
+    gap: 12px
+  }
+  .navigation_button {
+    font-size: 10px;
+    padding: 4px 8px;
+  }
+  .decoration_line {
+    width: calc(100% - 60px)
+  }
+}

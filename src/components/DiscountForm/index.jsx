@@ -58,11 +58,11 @@ function DiscountForm() {
 
   return(
     <div className={s.wrapper}>
+      <Modal/>
       <div className={s.discount_form_banner}>
         <h2 className={s.header_text}>5% off on the first order</h2>
-        <Modal/>
         <div className={s.form_wrapper}>
-          <img src={formPict} alt={'Hands with garden tools'}/>
+          <img src={formPict} alt={'Hands with garden tools'} className={s.form_picture}/>
           <form className={s.discount_form} onSubmit={handleSubmit(onSubmit)}>
             <input className={s.input_field} {...inputName} placeholder={errors.name?.message || 'Name'}/>
             <input className={s.input_field} {...inputPhone} placeholder={errors.phone?.message || 'Phone Number'}/>

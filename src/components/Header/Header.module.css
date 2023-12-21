@@ -48,6 +48,38 @@ a {
   width: 48px;
 }
 
-.map {
- border: none;
+
+@media (max-width: 760px) {
+  a {
+    font-size: 16px;
+    font-weight: 400;
+  }
+  .menu {
+    gap: 20px;
+  }
+  .menu_wrapper {
+    justify-content: space-around;
+    padding: 0;
+  }
+  .logo {
+    width: 50px;
+  }
+}
+
+@media (max-width: 450px) {
+  .header {
+    height: 100px;
+  }
+  .menu{
+    gap: 8px
+  }
+  a {
+    font-size: 13px;
+    font-weight: 400;
+  }
+  .logo {
+    width: 30px;
+
+  }
+  
 }

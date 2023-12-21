@@ -37,3 +37,41 @@
   border: 1px solid #DDD;
   border-radius: 6px;
 }
+
+@media (max-width: 1100px) {
+
+  .wrapper {
+    padding-left: 20px;
+    padding-right: 20px;
+  }
+  
+}
+
+@media (max-width: 960px) {
+  .header_text {
+    font-size: 56px;
+  }
+}
+
+@media (max-width: 600px) {
+  .header_text {
+    font-size: 40px;
+  }
+  
+}
+
+@media (max-width: 450px) {
+  .header_text {
+    font-size: 24px;
+  }
+
+  .navigation_button {
+    font-size: 10px;
+    padding: 4px 8px;
+  }
+  
+  .decoration_line {
+    width: calc(100% - 90px);
+    border-bottom: 1px solid #DDD;
+  }
+}

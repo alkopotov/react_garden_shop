@@ -47,3 +47,22 @@ h2 {
   display: flex;
   gap: 16px;
 }
+
+@media (max-width: 450px) {
+  footer {
+    padding: 40px 20px 20px 20px;
+  }
+  .contacts_wrapper {
+    gap: 8px
+  }
+  .contact_item h3 {
+    font-size: 16px;
+    padding-right: 10px;
+  }
+  .footer_header {
+    font-size: 24px;
+  }
+  .contact_item p {
+    font-size: 18px;
+  }
+}

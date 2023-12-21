@@ -4,7 +4,7 @@ import s from './OrderForm.module.css'
 import { useForm } from 'react-hook-form'
 import { dislpayErrorModalAction, displayOrderModalAction } from '../../store/modalReducer'
 import { clearCartAction } from '../../store/cartReducer'
-import { clearStoredProductsAction } from '../../store/cartProductIdsReducer'
+import { clearStoredProductsAction, getIdsInCartAction } from '../../store/cartProductIdsReducer'
 import { BASE_URL } from '../../asyncActions/backendconfig'
 
 function OrderForm({orderItems, orderSum}) {
@@ -54,6 +54,7 @@ function OrderForm({orderItems, orderSum}) {
           dispatch(displayOrderModalAction());
           dispatch(clearCartAction())
           dispatch(clearStoredProductsAction())
+          dispatch(getIdsInCartAction())
           reset()
         })
           .catch(err => dispatch(dislpayErrorModalAction()))  

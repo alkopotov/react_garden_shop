@@ -5,7 +5,7 @@ import { ReactComponent as Vk } from './images/ic-vk.svg'
 function Footer() {
   return(
     <footer>
-      <h2>Contacts</h2>
+      <h2 className={s.footer_header}>Contacts</h2>
       <div className={s.contacts_wrapper}>
         <div className={s.contact_item}>
           <p>Phone</p>
