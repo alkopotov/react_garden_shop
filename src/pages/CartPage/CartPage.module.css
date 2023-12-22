@@ -1,6 +1,7 @@
 .wrapper {
   width: 100%;
-  max-width: 1360px;
+  max-width: 1440px;
+  padding: 0 40px;
   margin: auto;
 }
 .header {
@@ -63,4 +64,38 @@
   display: flex;
   flex-direction: column;
   gap: 16px
+}
+
+@media (max-width: 1100px) {
+  .cart_information {
+    width: 100%;
+    grid-template-columns: 700fr 550fr;
+    gap: 16px;
+  }
+}
+
+@media (max-width: 800px) {
+  .cart_information {
+    grid-template-columns: 1fr;
+  }
+  .header_text {
+    font-size: 48px;
+  }
+}
+@media (max-width: 600px) {
+  .wrapper {
+    padding: 0 20px;
+  }
+  .header_text {
+    font-size: 24px;
+  }
+  .header_navigation {
+    width: 100%;
+  }
+  .navigation_button {
+    font-size: 12px;
+  }
+  .decoration_line {
+    width: calc(100% - 150px)
+  }
 }

@@ -79,7 +79,10 @@ a {
   }
   .logo {
     width: 30px;
+  }
 
+  .menu {
+    gap: 10px;
   }
   
 }

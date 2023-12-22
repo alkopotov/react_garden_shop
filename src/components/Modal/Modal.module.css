@@ -31,6 +31,7 @@
 
 .modal_content > p {
   font-size: 20px;
+  padding-bottom: 6px;
 }
 .wrapper.active {
   opacity: 1;
@@ -46,4 +47,15 @@
   right: 32px;
   cursor: pointer;
 
+}
+
+@media (max-width: 600px) {
+  .close_button {
+    top: 8px;
+    right: 8px;
+  }
+  .modal_content > h2 {
+    font-size: 32px;
+    margin-top: 8px;
+  }
 }
