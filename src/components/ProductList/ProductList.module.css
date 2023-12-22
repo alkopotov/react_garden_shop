@@ -64,6 +64,13 @@
 }
 
 @media (max-width: 450px) {
+  .wrapper {
+    margin-top: 40px;
+  }
+
+  .header {
+    margin-bottom: 20px;
+  }
   .header_text {
     font-size: 24px;
   }

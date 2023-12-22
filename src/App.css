@@ -56,4 +56,14 @@
   .categories_list_categories {
     grid-template-columns: repeat(2, 1fr);
   }
+  
+}
+@media (max-width: 450px) {
+  .categories_list_main {
+    gap: 12px;
+  }
+  .categories_list_categories {
+    gap: 12px;
+  }
+  
 }
