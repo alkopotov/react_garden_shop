@@ -14,7 +14,7 @@ function CartPage() {
   const dispatch = useDispatch()
 
   const cartProductsIds = useSelector(store => store.cartProductsIds)
-
+  
   useEffect(()=> {
    dispatch(fetchCartProducts()) 
   },[cartProductsIds])
@@ -46,7 +46,9 @@ function CartPage() {
             {cartProducts.map(elem => <CartItem key={elem.id} product={elem}/>)}
           </div>
           <OrderForm 
-            orderItems={cartProducts.length}
+            orderItems={cartProducts.reduce((sum, product) => {
+              return sum + product.count
+            }, 0)}
             orderSum={
               cartProducts.reduce((sum, product) => {
                 return sum + product.count * (product.discont_price ? product.discont_price : product.price)

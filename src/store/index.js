@@ -7,6 +7,7 @@ import { cartProductIdsReducer } from './cartProductIdsReducer'
 import { cartReducer } from './cartReducer'
 import { counterReducer } from './counterReducer'
 import { modalReducer } from './modalReducer'
+import { cartTotalProductsReducer } from './cartTotalProductsReducer'
 
 const rootReducer = combineReducers({
   productList: productListReducer,
@@ -15,7 +16,8 @@ const rootReducer = combineReducers({
   cartProductIds: cartProductIdsReducer,
   cart: cartReducer,
   counter: counterReducer,
-  modal: modalReducer
+  modal: modalReducer,
+  totalProducts: cartTotalProductsReducer
 },[])
 
 
