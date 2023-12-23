@@ -12,10 +12,26 @@ const router = createHashRouter([
   }
 ])
 
+export function idPrefix() {
+  return 'GarShopProductItem'
+}
+
 export const formatter = new Intl.NumberFormat('en-US', {
   minimumFractionDigits: 2,
   maximumFractionDigits: 2
 })
+
+export function encodeId(id){
+  return idPrefix() + id
+}
+
+export function decodeId(id){
+  return +id.slice(idPrefix().length)
+}
+
+export function decodeArrayId(array){
+  return array.map(elem => +decodeId(elem))
+}
 
 const root = ReactDOM.createRoot(document.getElementById('root'));
 root.render(

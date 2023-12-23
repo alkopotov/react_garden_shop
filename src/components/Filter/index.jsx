@@ -22,14 +22,17 @@ function Filter({withCheckbox}) {
 
   return (
     <div className={s.wrapper}>
-     <form className={s.filter_form} ref={formRef} onChange={filterHandler} >
+     <form className={s.filter_form} ref={formRef} onChange={filterHandler}>
+      
       <label> Price
         <input type="text" name="min" placeholder="from" className={s.price_input}/>
         <input type='text' name="max" placeholder="to" className={s.price_input}/>
       </label>
-      {withCheckbox && <label> Discounted Items
-        <input type="checkbox" name="discount_only" className={s.check_box}/>
-      </label>}
+
+      {withCheckbox && 
+        <label> Discounted Items
+          <input type="checkbox" name="discount_only" className={s.check_box}/>
+        </label>}
         
       <label> Sorted by
         <select name='sort_type' className={s.select_filter}>

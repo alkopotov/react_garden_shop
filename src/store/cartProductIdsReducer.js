@@ -1,4 +1,7 @@
-const defaultState = Object.keys(localStorage)
+import { decodeArrayId, encodeId, idPrefix } from ".."
+
+
+const defaultState = decodeArrayId(Object.keys(localStorage).filter(elem => elem.startsWith(idPrefix())))
 
 const ADD_PRODUCT_TO_CART = 'ADD_PRODUCT_TO_CART'
 const GET_IDS_IN_CART = 'GET_IDS_IN_CART'
@@ -8,18 +11,18 @@ const CLEAR_STORED_PRODUCTS = 'CLEAR_STORED_PRODUCTS'
 export const cartProductIdsReducer = (state = defaultState, action) => {
   switch(action.type) {
     case ADD_PRODUCT_TO_CART:
-      let currentCount = +localStorage.getItem(action.payload.id) || 0
+      let currentCount = +localStorage.getItem(encodeId(action.payload.id)) || 0
       if (currentCount + action.payload.count === 0) {
-        localStorage.removeItem(action.payload.id)
+        localStorage.removeItem(encodeId(action.payload.id))
       } else {
-        localStorage.setItem(action.payload.id, currentCount + action.payload.count)
+        localStorage.setItem(encodeId(action.payload.id), currentCount + action.payload.count)
       }
-      return Object.keys(localStorage)
+      return decodeArrayId(Object.keys(localStorage).filter(elem => elem.startsWith(idPrefix())))
     case GET_IDS_IN_CART:
-      return Object.keys(localStorage)
+      return decodeArrayId(Object.keys(localStorage).filter(elem => elem.startsWith(idPrefix())))
     case DEL_PRODUCT_IN_CART:
-      localStorage.removeItem(action.payload)
-      return Object.keys(localStorage)
+      localStorage.removeItem(encodeId(action.payload))
+      return decodeArrayId(Object.keys(localStorage).filter(elem => elem.startsWith(idPrefix())))
     case CLEAR_STORED_PRODUCTS:
       localStorage.clear()
       return defaultState

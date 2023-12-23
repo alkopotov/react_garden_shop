@@ -1,3 +1,6 @@
+import { decodeArrayId, encodeId, idPrefix } from ".."
+
+
 const defaultState = []
 
 
@@ -10,8 +13,9 @@ const CLEAR_CART = 'CLEAR_CART'
 export const cartReducer = (state = defaultState, action) => {
   switch(action.type) {
     case GET_CART_PRODUCTS:
-      let productsInCart = action.payload.filter(elem => Object.keys(localStorage).includes(`${elem.id}`))
-      return productsInCart.map(elem => { return {...elem, count: +localStorage.getItem(elem.id)}})
+      let cartIds = decodeArrayId(Object.keys(localStorage).filter(elem => elem.startsWith(idPrefix())))
+      let productsInCart = action.payload.filter(elem => cartIds.includes(elem.id))
+      return productsInCart.map(elem => { return {...elem, count: +localStorage.getItem(encodeId(elem.id))}})
     case INCR_CART_PRODUCT_COUNTER:
       return state.map(elem => {
         if (elem.id !== action.payload) {
