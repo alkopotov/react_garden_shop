@@ -42,3 +42,12 @@
 .button {
   margin-top: 40px;
 }
+
+@media (max-width: 700px) {
+  .picture img, .four {
+    height: 100px;
+  }
+  .header_text {
+    font-size: 56px;
+  }
+}
