@@ -1,6 +1,6 @@
 {
   "files": {
-    "main.css": "/react_garden_shop/static/css/main.9ecd8269.css",
+    "main.css": "/react_garden_shop/static/css/main.3ddff3f2.css",
     "main.js": "/react_garden_shop/static/js/main.41f2f16f.js",
     "static/media/banner_image.jpg": "/react_garden_shop/static/media/banner_image.4f810de570d6836bf51e.jpg",
     "static/media/discount_form.png": "/react_garden_shop/static/media/discount_form.449829cc0e931a3d77be.png",
@@ -14,11 +14,11 @@
     "static/media/close.svg": "/react_garden_shop/static/media/close.9c8dd88c7706cf7c512fed86a69d9ce7.svg",
     "static/media/four.svg": "/react_garden_shop/static/media/four.0de8d094456fc38d7df1a230a79ccd66.svg",
     "static/media/minus.svg": "/react_garden_shop/static/media/minus.7c9a77d7be45961557a523dac232d3d1.svg",
-    "main.9ecd8269.css.map": "/react_garden_shop/static/css/main.9ecd8269.css.map",
+    "main.3ddff3f2.css.map": "/react_garden_shop/static/css/main.3ddff3f2.css.map",
     "main.41f2f16f.js.map": "/react_garden_shop/static/js/main.41f2f16f.js.map"
   },
   "entrypoints": [
-    "static/css/main.9ecd8269.css",
+    "static/css/main.3ddff3f2.css",
     "static/js/main.41f2f16f.js"
   ]
 }
