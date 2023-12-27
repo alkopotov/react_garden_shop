@@ -1,24 +1,24 @@
 {
   "files": {
-    "main.css": "/static/css/main.9ecd8269.css",
-    "main.js": "/static/js/main.98e069cb.js",
-    "static/media/banner_image.jpg": "/static/media/banner_image.4f810de570d6836bf51e.jpg",
-    "static/media/discount_form.png": "/static/media/discount_form.449829cc0e931a3d77be.png",
-    "static/media/cactus.png": "/static/media/cactus.99552e74662f801ff98a.png",
-    "static/media/logo.svg": "/static/media/logo.99788402fec3e660072926ce69c9de50.svg",
-    "static/media/ic-tg.svg": "/static/media/ic-tg.a3a60dc200da1eaafe790e790df46e41.svg",
-    "static/media/cart.svg": "/static/media/cart.b8b917a6d06debe49bb42f16cdce11a5.svg",
-    "static/media/ic-vk.svg": "/static/media/ic-vk.0e261ea46e7c61f6e776e642cf6f81e6.svg",
-    "static/media/plus.svg": "/static/media/plus.f74bcc9e62aeb3b99b9aa0cd2f3b8a5e.svg",
-    "index.html": "/index.html",
-    "static/media/close.svg": "/static/media/close.9c8dd88c7706cf7c512fed86a69d9ce7.svg",
-    "static/media/four.svg": "/static/media/four.0de8d094456fc38d7df1a230a79ccd66.svg",
-    "static/media/minus.svg": "/static/media/minus.7c9a77d7be45961557a523dac232d3d1.svg",
-    "main.9ecd8269.css.map": "/static/css/main.9ecd8269.css.map",
-    "main.98e069cb.js.map": "/static/js/main.98e069cb.js.map"
+    "main.css": "/react_garden_shop/static/css/main.9ecd8269.css",
+    "main.js": "/react_garden_shop/static/js/main.41f2f16f.js",
+    "static/media/banner_image.jpg": "/react_garden_shop/static/media/banner_image.4f810de570d6836bf51e.jpg",
+    "static/media/discount_form.png": "/react_garden_shop/static/media/discount_form.449829cc0e931a3d77be.png",
+    "static/media/cactus.png": "/react_garden_shop/static/media/cactus.99552e74662f801ff98a.png",
+    "static/media/logo.svg": "/react_garden_shop/static/media/logo.99788402fec3e660072926ce69c9de50.svg",
+    "static/media/ic-tg.svg": "/react_garden_shop/static/media/ic-tg.a3a60dc200da1eaafe790e790df46e41.svg",
+    "static/media/cart.svg": "/react_garden_shop/static/media/cart.b8b917a6d06debe49bb42f16cdce11a5.svg",
+    "static/media/ic-vk.svg": "/react_garden_shop/static/media/ic-vk.0e261ea46e7c61f6e776e642cf6f81e6.svg",
+    "index.html": "/react_garden_shop/index.html",
+    "static/media/plus.svg": "/react_garden_shop/static/media/plus.f74bcc9e62aeb3b99b9aa0cd2f3b8a5e.svg",
+    "static/media/close.svg": "/react_garden_shop/static/media/close.9c8dd88c7706cf7c512fed86a69d9ce7.svg",
+    "static/media/four.svg": "/react_garden_shop/static/media/four.0de8d094456fc38d7df1a230a79ccd66.svg",
+    "static/media/minus.svg": "/react_garden_shop/static/media/minus.7c9a77d7be45961557a523dac232d3d1.svg",
+    "main.9ecd8269.css.map": "/react_garden_shop/static/css/main.9ecd8269.css.map",
+    "main.41f2f16f.js.map": "/react_garden_shop/static/js/main.41f2f16f.js.map"
   },
   "entrypoints": [
     "static/css/main.9ecd8269.css",
-    "static/js/main.98e069cb.js"
+    "static/js/main.41f2f16f.js"
   ]
 }
